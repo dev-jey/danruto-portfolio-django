@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main id="barba-wrapper">
+  <div class="barba-container" data-namespace="underlayer">
+    <div class="page-top">
+      <div class="page-top__inner"><a class="back-arrow" href="{% url 'home' %}"><svg xmlns="http://www.w3.org/2000/svg"
+            width="100%" height="34" viewBox="0 0 67 34">
+            <g fill="none" fill-rule="evenodd" stroke="#FFF" stroke-linecap="round" transform="translate(2 1)">
+              <path stroke-width="2" d="M0,15.5533333 L64,15.5533333" />
+              <polyline stroke-width="2" points="15.556 0 0 15.556 15.556 31.111" />
+            </g>
+          </svg></a>
+        <p class="scrollDown">SCROLLDOWN</p>
+        <div class="title">
+          <h2 class="title__text">About Me</h2>
+          <div class="border js-toRight"><span></span><span></span></div>
+          <p class="title__lead">{{about.description | safe}}</p>
+          <div class="btn-wrap"><a class="btn" href="{{about.linkedin}}" target="_balnk">Linked
+              In</a>
+          </div>
+        </div>
+        <div class="image image__about"></div>
+      </div>
+    </div>
+    <section class="wrapper">
+      <div class="who container">
+        <div class="text text--top">
+          <p class="heading-num">01</p>
+          <div class="text__wrap text__wrap--top content">
+            <h2 class="heading heading--top">WHO I AM</h2>
+            <div class="who__wrap">
+              <div class="who__name">
+                <h3 class="who__jp">Designer</h3>
+                <p class="who__en">{{about.name}}</p>
+              </div>
+              <p class="who__text">
+                {{about.description | safe}}
+              </p>
+              <div class="who__image"><img src="{{about.image}}" alt="{{about.name}}"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="passion container">
+        <div class="text">
+          <p class="heading-num">02</p>
+          <div class="text__wrap content">
+            <h2 class="heading">PASSION</h2>
+          </div>
+        </div>
+        <div class="content content--mlarge">
+          <ul class="passion__list">
+            <li class="passion__item">
+              <div class="passion__image"><img src="{% static 'img/design-skills.svg' %}" alt="design"></div>
+              <h3 class="sub-title">DESIGN</h3>
+              <p class="passion__text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus sapiente, eos doloremque quos
+                nobis beatae quaerat ipsam labore vel sint hic quod ipsa, nulla alias mollitia saepe, deleniti animi
+                aliquam.
+              </p>
+            </li>
+            <li class="passion__item">
+              <div class="passion__image"><img src="{% static 'img/tech.svg' %}" alt="TECHNOLOGY"></div>
+              <h3 class="sub-title">TECHNOLOGY</h3>
+              <p class="passion__text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum magni corporis voluptatem modi quas
+                minus cumque sequi. Optio adipisci, aperiam dolor molestias id nisi, libero, accusantium asperiores
+                assumenda tempora fuga.
+              </p>
+            </li>
+            <li class="passion__item">
+              <div class="passion__image"><img src="{% static 'img/book-open.svg' %}" alt="STORY"></div>
+              <h3 class="sub-title">STORY</h3>
+              <p class="passion__text">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae vero illum nihil sed assumenda
+                voluptates nesciunt magni, repellendus maiores doloribus tempora voluptatum debitis deleniti alias? Odit
+                debitis accusamus rem quo.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="skill-set container">
+        <div class="text">
+          <p class="heading-num">03</p>
+          <div class="text__wrap content">
+            <h2 class="heading">SKILL SET</h2>
+          </div>
+        </div>
+        <div class="content content--mlarge skill-set__flex">
+          <ul class="skill-set__list">
+            {% for skill in skills|slice:":4" %}
+            <li class="skill-set__item">
+              <div class="skill-set__icon"><img src="{{skill.icon}}" alt="Illustrator"></div>
+              <div class="skill-set__detail">
+                <div class="skill-set__meta">
+                  <div class="skill-set__name">
+                    <h4 class="small-title small-title--skill">{{skill.title}}</h4>
+                    <p class="skill-set__year">{{skill.years}} Years</p>
+                  </div>
+                  <p class="small-title small-title--skill skill-set__high">{{skill.percentage}}<span
+                      class="skill-set__ratio">%</span>
+                  </p>
+                </div>
+                <div class="skill-set__bar p{{skill.percentage}} js-scroll in"></div>
+              </div>
+            </li>
+            {% endfor %}
+          </ul>
+          <ul class="skill-set__list">
+            {% for skill in skills|slice:"4:" %}
+            <li class="skill-set__item">
+              <div class="skill-set__icon"><img src="{{skill.icon}}" alt="{{skill.title}}"></div>
+              <div class="skill-set__detail">
+                <div class="skill-set__meta">
+                  <div class="skill-set__name">
+                    <h4 class="small-title small-title--skill">{{skill.title}}</h4>
+                    <p class="skill-set__year">{{skill.years}} Years</p>
+                  </div>
+                  <p class="small-title small-title--skill skill-set__high">{{skill.percentage}}<span
+                      class="skill-set__ratio">%</span>
+                  </p>
+                </div>
+                <div class="skill-set__bar p{{skill.percentage}} js-scroll in"></div>
+              </div>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <a href="mailto:{{about.email}}">{{about.email}}</a>
+      <a href="{{about.linkedin}}" target="_blank">Linked In</a>
+    </footer>
+  </div>
+</main>
+
+{% endblock %}
