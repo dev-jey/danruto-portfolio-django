@@ -9,10 +9,11 @@ from django.utils.text import slugify
 
 class About(models.Model):
     name = models.CharField(max_length=100)
+    intro = HTMLField()
     email = models.CharField(max_length=100, default='')
     image = models.CharField(max_length=100, default='')
     dribble = models.CharField(max_length=100, default='')
-    linkedin = models.CharField(max_length=100, default='')
+    instagram = models.CharField(max_length=100, default='')
     behance = models.CharField(max_length=100, default='')
     role = models.CharField(max_length=100, default='Designer')
     description = HTMLField()
@@ -34,6 +35,15 @@ class Skill(models.Model):
         return self.title
 
 
+class ProjectType(models.Model):
+    name = models.CharField(max_length=100, default='')
+    url = models.CharField(max_length=100, default='')
+    created_at = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
+
+
 class Project(models.Model):
     title = models.CharField(max_length=100)
     role = models.CharField(max_length=100, default='')
@@ -42,9 +52,12 @@ class Project(models.Model):
     slug = models.SlugField(db_index=True, max_length=1000, default='',
                             editable=False,
                             unique=True, blank=True, primary_key=True)
-    image = models.CharField(max_length=100)
+    image = models.CharField(max_length=1055)
     active = models.BooleanField(default=False)
     link = models.CharField(max_length=100)
+    project_type = models.ForeignKey(ProjectType, related_name='project_type',
+                                     on_delete=models.CASCADE,
+                                     blank=True, null=True)
     created_at = models.DateField(auto_now_add=True)
 
     class Meta:

@@ -62,10 +62,28 @@
       <div class="section">
         <div class="fullpage__slide">
           <div class="title">
+            <h2 class="title__text js-letter">My Featured <br>Logos</h2>
+            <div class="border js-letter"><span></span><span class="js-letter"></span></div>
+            <p class="title__lead js-letter">Logo Design</p>
+            <div class="btn-wrap js-letter"><a class="btn" href="{% url 'logo' %}">View All</a></div>
+          </div><a class="image image--works" href="{% url 'logo' %}">
+            <div class="image__over">
+              <div class="image__cover"></div>
+              <div class="image__cover"></div>
+            </div>
+            <div class="page-num">
+              <p>02</p>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="section">
+        <div class="fullpage__slide">
+          <div class="title">
             <h2 class="title__text js-letter">About Me</h2>
             <div class="border js-letter"><span></span><span class="js-letter"></span></div>
-            <p class="title__lead js-letter">{{about.description|safe}}</p>
-            <div class="btn-wrap js-letter"><a class="btn" href="about.html">Show me more</a></div>
+            <p class="title__lead js-letter about-desc">{{about.intro|safe}}</p>
+            <div class="btn-wrap js-letter"><a class="btn" href="{% url 'about'%}">Show me more</a></div>
           </div><a class="image image--about" href="{% url 'about'%}">
             <div class="image__over">
               <div class="image__cover"></div>
@@ -84,7 +102,7 @@
             <div class="border js-letter"><span></span><span class="js-letter"></span></div>
             <ul>
               <li class="js-letter"><a href="mailto:{{about.email}}">{{about.email}}</a></li>
-              <li class="js-letter"><a href="{{about.linkedin}}" target="_blank">Linked In</a>
+              <li class="js-letter"><a href="{{about.instagram}}" target="_blank">Instagram</a>
               </li>
               <li class="js-letter">
 

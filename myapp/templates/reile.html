@@ -19,36 +19,22 @@
       {% for project in projects %}
       <div class="meta" data-emergence="hidden">
         <div class="meta__back"></div>
-        <div class="content meta__text-wrap">
-          <ul class="meta__text">
-            <li>
-              <p class="small-title">ROLE</p>
-              <p>{{project.role}}</p>
-            </li>
-            <li>
-              <p class="small-title">DATE</p>
-              <p>{{project.date}}</p>
-            </li>
-            <!-- <li>
-              <p class="small-title">OVERVIEW</p>
-              <p>{{project.description|safe}}</p>
-            </li> -->
-          </ul>
-        </div>
         <div class="content"><img src="{{project.image}}" alt="{{project.title}}"></div>
       </div>
       <div class="text">
-        <p class="heading-num">0{{project.id}}</p>
+        <p class="heading-num">{{project.id}}</p>
         <div class="text__wrap">
-          <h2 class="heading">CONCEPT</h2>
+          <h2 class="heading" style="font-size: 3rem;">{{project.title}}</h2>
           <p class="text__works">
             {{project.description|safe}}
           </p>
         </div>
       </div>
-      {% endfor %}
+
+      <br><br><br>
       <br>
-      <hr>
+      {% endfor %}
+      <br><br><br>
       <br>
       <div class="content content--mlarge back-btn-wrap"><a class="back-btn" href="{% url 'home'%}">BACK</a></div>
     </section>

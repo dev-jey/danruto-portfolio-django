@@ -15,15 +15,14 @@
         <div class="title">
           <h2 class="title__text">About Me</h2>
           <div class="border js-toRight"><span></span><span></span></div>
-          <p class="title__lead">{{about.description | safe}}</p>
-          <div class="btn-wrap"><a class="btn" href="{{about.linkedin}}" target="_balnk">Linked
-              In</a>
+          <p class="title__lead about-desc">{{about.intro | safe}}</p>
+          <div class="btn-wrap"><a class="btn" href="#more">View More</a>
           </div>
         </div>
         <div class="image image__about"></div>
       </div>
     </div>
-    <section class="wrapper">
+    <section class="wrapper" id="more">
       <div class="who container">
         <div class="text text--top">
           <p class="heading-num">01</p>
@@ -132,7 +131,7 @@
     </section>
     <footer class="footer">
       <a href="mailto:{{about.email}}">{{about.email}}</a>
-      <a href="{{about.linkedin}}" target="_blank">Linked In</a>
+      <a href="{{about.instagram}}" target="_blank">Instagram</a>
     </footer>
   </div>
 </main>

@@ -20,7 +20,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface">
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="stylesheet" href="awwwards.css">
     <meta property="og:url" content="kuon.space">
     <meta property="og:title" content="KUON YAGI PORTFOLIO">
     <title>{{about.name}} Portfolio</title>
@@ -36,16 +35,18 @@
                     <i class="fab fa-behance-square"></i></a>
                 <a href="{{about.dribble}}" target="_blank">
                     <i class="fab fa-dribbble"></i></a>
-                <a href="{{about.linkedin}}" target="_blank">Linked In</a>
+                <a href="{{about.instagram}}" target="_blank">Instagram</a>
             </div>
             <div class="menuIcon js-menuBtn"></div>
         </div>
         <nav class="global-nav">
             <ul class="global-nav__list">
-                <li><a href="{% url 'home' %}">HOME</a></li>
-                <li><a href="{% url 'portfolio' %}">WORKS</a></li>
-                <li><a href="{% url 'about' %}">ABOUT ME</a></li>
-                <li><a class="js-contact" href="{% url 'home' %}#contact">CONTACT</a></li>
+                <li><a href="{% url 'home' %}" style="font-size: 6rem">HOME</a></li>
+                {% for proj in project_types %}
+                <li><a href="{% url proj.url %}" style="font-size: 6rem">{{proj.name}}</a></li>
+                {% endfor %}
+                <li><a href="{% url 'about' %}" style="font-size: 6rem">ABOUT ME</a></li>
+                <li><a class="js-contact" href="{% url 'home' %}#contact" style="font-size: 6rem">CONTACT</a></li>
                 <li class="global-nav__sns"><a href="{{about.behance}}" target="_blank">
                         <i class="fab fa-behance-square"></i></a>
                     <a href="{{about.dribble}}" target="_blank">
