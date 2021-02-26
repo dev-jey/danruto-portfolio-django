@@ -29,3 +29,11 @@ def get_logos(request):
         active=True).filter(project_type=2).order_by('-date')
     about = About.objects.all().first()
     return render(request, 'logo.html', {"projects": projects, "about": about, "project_types": project_types})
+
+
+def get_contact(request):
+    project_types = ProjectType.objects.all()
+    projects = Project.objects.filter(
+        active=True).filter(project_type=2).order_by('-date')
+    about = About.objects.all().first()
+    return render(request, 'contact.html', {"projects": projects, "about": about, "project_types": project_types})
