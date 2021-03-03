@@ -18,7 +18,7 @@ def get_about(request):
 def get_portfolio(request):
     project_types = ProjectType.objects.all()
     projects = Project.objects.filter(
-        project_type=1).filter(active=True).order_by('-date')
+        project_type__url='portfolio').filter(active=True).order_by('-date')
     about = About.objects.all().first()
     return render(request, 'reile.html', {"projects": projects, "about": about, "project_types": project_types})
 
@@ -26,14 +26,12 @@ def get_portfolio(request):
 def get_logos(request):
     project_types = ProjectType.objects.all()
     projects = Project.objects.filter(
-        active=True).filter(project_type=2).order_by('-date')
+        active=True).filter(project_type__url='logo').order_by('-date')
     about = About.objects.all().first()
     return render(request, 'logo.html', {"projects": projects, "about": about, "project_types": project_types})
 
 
 def get_contact(request):
     project_types = ProjectType.objects.all()
-    projects = Project.objects.filter(
-        active=True).filter(project_type=2).order_by('-date')
     about = About.objects.all().first()
-    return render(request, 'contact.html', {"projects": projects, "about": about, "project_types": project_types})
+    return render(request, 'contact.html', {"about": about, "project_types": project_types})
