@@ -52,7 +52,8 @@ class Project(models.Model):
     slug = models.SlugField(db_index=True, max_length=10000, default='',
                             editable=False,
                             unique=True, blank=True, primary_key=True)
-    image = models.CharField(max_length=1055)
+    image = models.CharField(max_length=1055, blank=True, null=True)
+    video = models.CharField(max_length=1055, blank=True, null=True)
     active = models.BooleanField(default=False)
     link = models.CharField(max_length=1000)
     project_type = models.ForeignKey(ProjectType, related_name='project_type',
