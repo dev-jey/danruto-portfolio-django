@@ -19,12 +19,12 @@
             {% for project in projects %}
             <div class="meta" data-emergence="hidden">
                 <div class="meta__back"></div>
-                <div class="content">
+                <div class="content" style="background-color: #f1f4fe !important;">
                     {% if project.image %}
                     <img src="{{project.image}}" alt="{{project.title}}">
                     {% endif %}
                 </div>
-                <div class="content">
+                <div class="content" style="background-color: #f1f4fe !important;">
                     {% if project.video %}
                     <video width="100%" height="1000" autoplay loop id="vid" muted>
                         <source src="{{project.video}}" type="video/mp4">

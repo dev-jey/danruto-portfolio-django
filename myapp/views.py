@@ -26,7 +26,7 @@ def get_portfolio(request):
 def get_logos(request):
     project_types = ProjectType.objects.all()
     projects = Project.objects.filter(
-        active=True).filter(project_type__url='logo').order_by('-date')
+        active=True).filter(project_type__url='case-studies').order_by('-date')
     about = About.objects.all().first()
     return render(request, 'logo.html', {"projects": projects, "about": about, "project_types": project_types})
 
